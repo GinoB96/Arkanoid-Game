@@ -1,0 +1,22 @@
+---Ventana:
+
+{nextNivel}: 
+	*Borrar nextLevel y colocar:
+ public void nextLevel(){
+        try {
+            nivel.aumentarNivel();
+            switch(nivel.getNivelActualArkanoid()){
+                case 2: img_fondo=ImageIO.read(new File("imagenes/Arkanoid/Arkanoid Nivel2 (con salida) - Fields.png"));
+                        break;
+                case 3: img_fondo=ImageIO.read(new File("imagenes/Arkanoid/Arkanoid Nivel3 (con salida) - Fields.png"));
+                        break;
+            }
+            vectorBola.clear();
+            vectorBola.add(new Bola((fondoAncho / 2)-2,fondoAlto+20));
+            nave.setPosicion((fondoAncho / 2)-17, fondoAlto+25);
+            nivel.loadNivel();
+        } catch (IOException e) {
+            System.out.println("Error nextLevel: "+e);
+        }
+    }
+
